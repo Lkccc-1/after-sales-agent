@@ -78,5 +78,5 @@ curl -s http://127.0.0.1:8000/chat -H "Content-Type: application/json" \
 
 ## 已知问题
 
-- **`<think>` 推理标签**：Dify 的 `deepseek-flash` 会把思维链写进 `answer`。网关层已剥离（`gateway/main.py` 的 `clean_answer`），但网页端仍由工作流原样输出；彻底修复需在工作流加代码节点，考虑到会改动已评测版本，暂未动。
+- **`<think>` 推理标签（已修复，2026-11-10）**：`deepseek-flash` 会把思维链写进 `answer`。网关层用 `clean_answer` 剥离；网页端在工作流 3 个 LLM 节点后各加一个「剥离思维链」代码节点，`dify/售后智服-v2.yaml` 已同步。剥离只删标签，不改回答内容，评测口径不变。
 - 订单是模拟数据；无身份核验；单机部署结论只在 20 并发口径内成立。
