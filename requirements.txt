@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+httpx
+python-dotenv
+openai
+jieba
+rank-bm25
+llama-index
+llama-index-embeddings-huggingface
+mcp[cli]

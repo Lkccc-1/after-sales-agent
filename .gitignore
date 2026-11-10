@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+logs/*.jsonl
+!logs/gateway_sample.jsonl
+!logs/.gitkeep
+.DS_Store

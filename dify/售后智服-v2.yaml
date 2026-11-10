@@ -1,0 +1,1159 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: advanced-chat
+  name: 售后智服 v2
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.26@bdf47cb41e9062bba00d26625d2a795c1874011d8ce64bff738c44b5a31787ea
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.2.27@d9409c7d4e1ab9358330ee1c9897c29060f739657ec11e4aaab92f4265b376b6
+    version: null
+kind: app
+site:
+  chat_color_theme: null
+  chat_color_theme_inverted: false
+  copyright: null
+  custom_disclaimer: ''
+  default_language: zh-Hans
+  description: null
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  input_placeholder: null
+  privacy_policy: null
+  show_workflow_steps: true
+  title: 售后智服 v2
+  use_icon_as_answer_icon: false
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        knowledge_file_size_limit: 15
+        single_chunk_attachment_limit: 10
+        skill_file_size_limit: 50
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: 你好，我是小服，云鲸数码的售后助手。退换货、保修、物流、发票，或者查订单，都可以问我。
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions:
+    - 七天无理由退货有什么条件？
+    - 订单 A20241105001 到哪了？
+    - 耳机保修多久？
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: question-classifier
+      id: 1793977865383-source-1793978099692-target
+      source: '1793977865383'
+      sourceHandle: source
+      target: '1793978099692'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: answer
+      id: 1793978099692-5f170e62-bf15-4727-950f-7b59a2a29529-1793978272913-target
+      source: '1793978099692'
+      sourceHandle: 5f170e62-bf15-4727-950f-7b59a2a29529
+      target: '1793978272913'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: parameter-extractor
+      id: 1793978099692-a53a41ad-53e3-4970-bc90-fb5e7d1920de-1793979038323-target
+      source: '1793978099692'
+      sourceHandle: a53a41ad-53e3-4970-bc90-fb5e7d1920de
+      target: '1793979038323'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: if-else
+      id: 1793979038323-source-1793979145982-target
+      source: '1793979038323'
+      sourceHandle: source
+      target: '1793979145982'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1793979145982-true-1793979164452-target
+      source: '1793979145982'
+      sourceHandle: 'true'
+      target: '1793979164452'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1793979145982-false-1793979352183-target
+      source: '1793979145982'
+      sourceHandle: 'false'
+      target: '1793979352183'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1793979352183--1793979701701-target
+      source: '1793979352183'
+      sourceHandle: source
+      target: '1793979701701'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1793979701701-false-1793980155026-target
+      source: '1793979701701'
+      sourceHandle: 'false'
+      target: '1793980155026'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: knowledge-retrieval
+      id: 1793978099692-2-1793981257778-target
+      source: '1793978099692'
+      sourceHandle: '2'
+      target: '1793981257778'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: if-else
+      id: 1793981257778-source-1793981321206-target
+      source: '1793981257778'
+      sourceHandle: source
+      target: '1793981321206'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1793981321206-true-1793981338774-target
+      source: '1793981321206'
+      sourceHandle: 'true'
+      target: '1793981338774'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1793981321206-false-1793981362486-target
+      source: '1793981321206'
+      sourceHandle: 'false'
+      target: '1793981362486'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1793981362486-source-1793981448574-target
+      source: '1793981362486'
+      sourceHandle: source
+      target: '1793981448574'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: template-transform
+      id: 1793979701701-true-1793983036146-target
+      source: '1793979701701'
+      sourceHandle: 'true'
+      target: '1793983036146'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: knowledge-retrieval
+      id: 1793983036146-source-1793983132437-target
+      source: '1793983036146'
+      sourceHandle: source
+      target: '1793983132437'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: if-else
+      id: 1793983132437-source-1793983212904-target
+      source: '1793983132437'
+      sourceHandle: source
+      target: '1793983212904'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1793983212904-true-1793983298815-target
+      source: '1793983212904'
+      sourceHandle: 'true'
+      target: '1793983298815'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1793983212904-false-1793983323980-target
+      source: '1793983212904'
+      sourceHandle: 'false'
+      target: '1793983323980'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1793983323980-source-1793983518256-target
+      source: '1793983323980'
+      sourceHandle: source
+      target: '1793983518256'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1793984500853-source-1793984605443-target
+      selected: false
+      source: '1793984500853'
+      sourceHandle: source
+      target: '1793984605443'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1793978099692-225b493e-364c-44f6-8fbc-173c45ebcbb2-1793984500853-target
+      selected: false
+      source: '1793978099692'
+      sourceHandle: 225b493e-364c-44f6-8fbc-173c45ebcbb2
+      target: '1793984500853'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables: []
+      height: 73
+      id: '1793977865383'
+      position:
+        x: 0
+        y: 561
+      positionAbsolute:
+        x: 0
+        y: 561
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        classes:
+        - description: ''
+          id: '2'
+          label: policy_qa
+          name: 通用售后规则咨询：问退换货、保修、物流、发票、赔付的标准/流程/时限。即使句子里出现「我买的」「收到的」「坏了」「要退」等词，只要没有订单号、也不是在查订单状态或物流进度，就选这一类。物流规则（驿站验货、能否拒收、签收未收到、破损/丢件怎么处理、发货时效）也选这一类。
+        - description: ''
+          id: a53a41ad-53e3-4970-bc90-fb5e7d1920de
+          label: order_query
+          name: 查询具体订单或物流进度：出现订单号（如 A2026…），或明确要求「帮我查订单」「我的快递到哪了」「什么时候发货」，或需要结合某笔订单的日期/状态/商品才能判断（如「我这单能退吗」）。没有订单号、也不是查单诉求时，不选这一类。
+        - description: ''
+          id: 225b493e-364c-44f6-8fbc-173c45ebcbb2
+          label: complaint
+          name: 投诉、指责、要求赔偿、情绪激烈、要说法；或声称要投诉、曝光、找消协/12315。仅询问赔付标准或退换流程（如「生鲜坏了一半怎么赔」）不算投诉。
+        - id: 5f170e62-bf15-4727-950f-7b59a2a29529
+          label: other
+          name: 与售后无关
+        instruction: " 先判断用户在问「通用规则」还是「自己的某件商品/某笔订单」。\n  出现「我买的、我这单、上周买的、订单号」等指向具体购买的信息\
+          \ → order_query。\n  只问规则本身、不涉及自己某一单 → policy_qa。"
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          window:
+            enabled: true
+            size: 6
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-flash
+          provider: langgenius/deepseek/deepseek
+        query_variable_selector:
+        - sys
+        - query
+        selected: false
+        title: 问题分类器
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 262
+      id: '1793978099692'
+      position:
+        x: 342
+        y: 466.5
+      positionAbsolute:
+        x: 342
+        y: 466.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: 这个我帮不上忙。我只负责云鲸售后：退换货、保修、物流、发票。你有这几类问题可以直接问我。
+        selected: false
+        title: 超范围引导
+        type: answer
+        variables: []
+      height: 132
+      id: '1793978272913'
+      position:
+        x: 703
+        y: 832.5
+      positionAbsolute:
+        x: 703
+        y: 832.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        instruction: 从用户输入中提取订单号。不要推测，没有就返回空。本轮没提到订单号时，沿用上一轮出现过的订单号。
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 6
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-flash
+          provider: langgenius/deepseek/deepseek
+        parameters:
+        - description: 用户提到的订单号，形如 A20241105001，只保留字母和数字，没有则留空
+          name: order_id
+          required: false
+          type: string
+        query:
+        - sys
+        - query
+        reasoning_mode: prompt
+        selected: false
+        title: 参数提取器
+        type: parameter-extractor
+        vision:
+          enabled: false
+      height: 88
+      id: '1793979038323'
+      position:
+        x: 703
+        y: 440.5
+      positionAbsolute:
+        x: 703
+        y: 440.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: empty
+            id: 9bdf42c9-e8f0-44a6-9e53-c6dad4771649
+            value: ''
+            varType: string
+            variable_selector:
+            - '1793979038323'
+            - order_id
+          logical_operator: and
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 124
+      id: '1793979145982'
+      position:
+        x: 1044
+        y: 423.5
+      positionAbsolute:
+        x: 1044
+        y: 423.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: 可以的，麻烦提供一下订单号（在订单详情页可以看到），我帮你查。
+        selected: false
+        title: 追问订单号
+        type: answer
+        variables: []
+      height: 116
+      id: '1793979164452'
+      position:
+        x: 1405
+        y: 346
+      positionAbsolute:
+        x: 1405
+        y: 346
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        code: "def main(order_id: str) -> dict:\n    from datetime import date\n\n\
+          \    orders = {\n        \"A20241105001\": {\n            \"product\": \"\
+          云鲸 Air 耳机\", \"category\": \"耳机\",\n            \"order_date\": \"2024-11-05\"\
+          , \"amount\": 399,\n            \"status\": \"已签收\", \"warranty_end\": \"\
+          2025-11-05\",\n        },\n        \"A20241105002\": {\n            \"product\"\
+          : \"云鲸扫地机器人 X1\", \"category\": \"扫地机器人\",\n            \"order_date\":\
+          \ \"2024-11-05\", \"amount\": 2499,\n            \"status\": \"已发货\", \"\
+          warranty_end\": \"2025-11-05\",\n        },\n        \"A20241106001\": {\n\
+          \            \"product\": \"云鲸无线吸尘器\", \"category\": \"吸尘器\",\n        \
+          \    \"order_date\": \"2024-11-06\", \"amount\": 899,\n            \"status\"\
+          : \"已签收\", \"warranty_end\": \"2025-11-06\",\n        },\n        \"A20241108003\"\
+          : {\n            \"product\": \"云鲸智能手表\", \"category\": \"智能手表\",\n    \
+          \        \"order_date\": \"2024-11-08\", \"amount\": 1299,\n           \
+          \ \"status\": \"已签收\", \"warranty_end\": \"2025-11-08\",\n        },\n \
+          \       \"A20241110001\": {\n            \"product\": \"云鲸空气净化器\", \"category\"\
+          : \"空气净化器\",\n            \"order_date\": \"2024-11-10\", \"amount\": 1599,\n\
+          \            \"status\": \"待发货\", \"warranty_end\": \"2025-11-10\",\n  \
+          \      },\n        \"A20241112002\": {\n            \"product\": \"云鲸电动牙刷\"\
+          , \"category\": \"个护小电\",\n            \"order_date\": \"2024-11-12\", \"\
+          amount\": 299,\n            \"status\": \"已签收\", \"warranty_end\": \"2025-11-12\"\
+          ,\n        },\n        \"A20250115001\": {\n            \"product\": \"\
+          云鲸扫地机器人 X1\", \"category\": \"扫地机器人\",\n            \"order_date\": \"2025-01-15\"\
+          , \"amount\": 2299,\n            \"status\": \"已签收\", \"warranty_end\":\
+          \ \"2026-01-15\",\n        },\n        \"A20250320001\": {\n           \
+          \ \"product\": \"云鲸 Air 耳机\", \"category\": \"耳机\",\n            \"order_date\"\
+          : \"2025-03-20\", \"amount\": 399,\n            \"status\": \"已签收\", \"\
+          warranty_end\": \"2026-03-20\",\n        },\n        \"A20250610001\": {\n\
+          \            \"product\": \"云鲸空气净化器\", \"category\": \"空气净化器\",\n      \
+          \      \"order_date\": \"2025-06-10\", \"amount\": 1499,\n            \"\
+          status\": \"已签收\", \"warranty_end\": \"2026-06-10\",\n        },\n     \
+          \   \"A20250808001\": {\n            \"product\": \"云鲸智能手表\", \"category\"\
+          : \"智能手表\",\n            \"order_date\": \"2025-08-08\", \"amount\": 1299,\n\
+          \            \"status\": \"已签收\", \"warranty_end\": \"2026-08-08\",\n  \
+          \      },\n        \"A20260918001\": {\n            \"product\": \"云鲸 Air\
+          \ 耳机 Pro\", \"category\": \"耳机\",\n            \"order_date\": \"2026-09-18\"\
+          , \"amount\": 599,\n            \"status\": \"已签收\", \"warranty_end\": \"\
+          2027-09-18\",\n        },\n        \"A20260918002\": {\n            \"product\"\
+          : \"云鲸扫地机器人 X2\", \"category\": \"扫地机器人\",\n            \"order_date\":\
+          \ \"2026-09-18\", \"amount\": 3299,\n            \"status\": \"运输中\", \"\
+          warranty_end\": \"2027-09-18\",\n        },\n        \"A20260922001\": {\n\
+          \            \"product\": \"云鲸洗地机 S1\", \"category\": \"洗地机\",\n       \
+          \     \"order_date\": \"2026-09-22\", \"amount\": 1999,\n            \"\
+          status\": \"已签收\", \"warranty_end\": \"2027-09-22\",\n        },\n     \
+          \   \"A20260925001\": {\n            \"product\": \"云鲸智能手表 S\", \"category\"\
+          : \"智能手表\",\n            \"order_date\": \"2026-09-25\", \"amount\": 1099,\n\
+          \            \"status\": \"已取消\", \"warranty_end\": \"2027-09-25\",\n  \
+          \      },\n        \"A20261001001\": {\n            \"product\": \"云鲸空气净化器\
+          \ Pro\", \"category\": \"空气净化器\",\n            \"order_date\": \"2026-10-01\"\
+          , \"amount\": 2199,\n            \"status\": \"已签收\", \"warranty_end\":\
+          \ \"2027-10-01\",\n        },\n        \"A20261003001\": {\n           \
+          \ \"product\": \"云鲸电动牙刷 Pro\", \"category\": \"个护小电\",\n            \"order_date\"\
+          : \"2026-10-03\", \"amount\": 349,\n            \"status\": \"已签收\", \"\
+          warranty_end\": \"2027-10-03\",\n        },\n        \"A20261005001\": {\n\
+          \            \"product\": \"云鲸吹风机\", \"category\": \"个护小电\",\n         \
+          \   \"order_date\": \"2026-10-05\", \"amount\": 699,\n            \"status\"\
+          : \"运输中\", \"warranty_end\": \"2027-10-05\",\n        },\n        \"A20261008001\"\
+          : {\n            \"product\": \"云鲸无线吸尘器 V2\", \"category\": \"吸尘器\",\n \
+          \           \"order_date\": \"2026-10-08\", \"amount\": 1299,\n        \
+          \    \"status\": \"已签收\", \"warranty_end\": \"2027-10-08\",\n        },\n\
+          \        \"A20261010001\": {\n            \"product\": \"云鲸智能门锁\", \"category\"\
+          : \"智能家居\",\n            \"order_date\": \"2026-10-10\", \"amount\": 2599,\n\
+          \            \"status\": \"已签收\", \"warranty_end\": \"2028-10-10\",\n  \
+          \      },\n        \"A20261012001\": {\n            \"product\": \"云鲸智能台灯\"\
+          , \"category\": \"智能家居\",\n            \"order_date\": \"2026-10-12\", \"\
+          amount\": 499,\n            \"status\": \"待发货\", \"warranty_end\": \"2027-10-12\"\
+          ,\n        },\n        \"A20261015001\": {\n            \"product\": \"\
+          云鲸空气炸锅\", \"category\": \"厨房小电\",\n            \"order_date\": \"2026-10-15\"\
+          , \"amount\": 599,\n            \"status\": \"已签收\", \"warranty_end\": \"\
+          2027-10-15\",\n        },\n        \"A20261018001\": {\n            \"product\"\
+          : \"云鲸除湿机\", \"category\": \"环境电器\",\n            \"order_date\": \"2026-10-18\"\
+          , \"amount\": 1899,\n            \"status\": \"已签收\", \"warranty_end\":\
+          \ \"2027-10-18\",\n        },\n        \"A20261020001\": {\n           \
+          \ \"product\": \"云鲸智能音箱\", \"category\": \"智能家居\",\n            \"order_date\"\
+          : \"2026-10-20\", \"amount\": 399,\n            \"status\": \"已签收\", \"\
+          warranty_end\": \"2027-10-20\",\n        },\n        \"A20261022001\": {\n\
+          \            \"product\": \"云鲸电动剃须刀\", \"category\": \"个护小电\",\n       \
+          \     \"order_date\": \"2026-10-22\", \"amount\": 459,\n            \"status\"\
+          : \"已取消\", \"warranty_end\": \"2027-10-22\",\n        },\n        \"A20261025001\"\
+          : {\n            \"product\": \"云鲸扫地机器人 X2 Pro\", \"category\": \"扫地机器人\"\
+          ,\n            \"order_date\": \"2026-10-25\", \"amount\": 4599,\n     \
+          \       \"status\": \"已签收\", \"warranty_end\": \"2027-10-25\",\n       \
+          \ },\n        \"A20261028001\": {\n            \"product\": \"云鲸加湿器\", \"\
+          category\": \"环境电器\",\n            \"order_date\": \"2026-10-28\", \"amount\"\
+          : 799,\n            \"status\": \"运输中\", \"warranty_end\": \"2027-10-28\"\
+          ,\n        },\n        \"A20261030001\": {\n            \"product\": \"\
+          云鲸定制款洗地机（刻字）\", \"category\": \"定制商品\",\n            \"order_date\": \"\
+          2026-10-30\", \"amount\": 2599,\n            \"status\": \"已签收\", \"warranty_end\"\
+          : \"2027-10-30\",\n        },\n        \"A20261101001\": {\n           \
+          \ \"product\": \"云鲸 Air 耳机 Lite\", \"category\": \"耳机\",\n            \"\
+          order_date\": \"2026-11-01\", \"amount\": 299,\n            \"status\":\
+          \ \"已签收\", \"warranty_end\": \"2027-11-01\",\n        },\n        \"A20261102001\"\
+          : {\n            \"product\": \"云鲸扫拖一体机器人（大件）\", \"category\": \"大件家电\"\
+          ,\n            \"order_date\": \"2026-11-02\", \"amount\": 3999,\n     \
+          \       \"status\": \"待发货\", \"warranty_end\": \"2028-11-02\",\n       \
+          \ },\n        \"A20261103001\": {\n            \"product\": \"云鲸智能手表 Ultra\"\
+          , \"category\": \"智能手表\",\n            \"order_date\": \"2026-11-03\", \"\
+          amount\": 1899,\n            \"status\": \"已签收\", \"warranty_end\": \"2027-11-03\"\
+          ,\n        },\n    }\n\n    key = (order_id or \"\").strip().upper().replace(\"\
+          \ \", \"\")\n    o = orders.get(key)\n    if o is None:\n        return\
+          \ {\n            \"found\": False, \"order_info\": \"\", \"category\": \"\
+          \", \"status\": \"\",\n            \"days_since_order\": 0, \"in_return_window\"\
+          : False, \"shipping_overdue\": False,\n        }\n\n    today = date.today()\n\
+          \    try:\n        days = (today - date.fromisoformat(o[\"order_date\"])).days\n\
+          \    except ValueError:\n        days = 0\n\n    warranty = o[\"warranty_end\"\
+          ]\n    warranty_status = \"保修中\" if warranty >= today.isoformat() else \"\
+          已过保\"\n    in_return_window = o[\"status\"] == \"已签收\" and 0 <= days <=\
+          \ 7\n    shipping_overdue = o[\"status\"] == \"待发货\" and days > 2\n\n  \
+          \  if o[\"status\"] == \"已取消\":\n        window_text = \"不适用（订单已取消）\"\n\
+          \    elif o[\"status\"] != \"已签收\":\n        window_text = \"未签收，7日窗口未开始\"\
+          \n    elif in_return_window:\n        window_text = \"是（签收未满7日）\"\n    else:\n\
+          \        window_text = f\"否（已超7日，下单至今 {days} 天）\"\n\n    if o[\"status\"\
+          ] == \"待发货\":\n        ship_text = \"已超48小时，可取消并全额退款\" if shipping_overdue\
+          \ else \"未超48小时\"\n    else:\n        ship_text = \"不适用\"\n\n    info =\
+          \ (\n        f\"订单号 {key}｜商品 {o['product']}｜品类 {o['category']}｜\"\n    \
+          \    f\"下单 {o['order_date']}｜金额 {o['amount']} 元｜\"\n        f\"状态 {o['status']}｜保修至\
+          \ {warranty}（{warranty_status}）｜\"\n        f\"下单至今 {days} 天｜7日退货窗口 {window_text}｜发货时效\
+          \ {ship_text}\"\n    )\n    return {\n        \"found\": True, \"order_info\"\
+          : info, \"category\": o[\"category\"],\n        \"status\": o[\"status\"\
+          ], \"days_since_order\": days,\n        \"in_return_window\": in_return_window,\
+          \ \"shipping_overdue\": shipping_overdue,\n    }\n"
+        code_language: python3
+        outputs:
+          category:
+            children: null
+            type: string
+          days_since_order:
+            children: null
+            type: number
+          found:
+            children: null
+            type: boolean
+          in_return_window:
+            children: null
+            type: boolean
+          order_info:
+            children: null
+            type: string
+          shipping_overdue:
+            children: null
+            type: boolean
+          status:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行
+        type: code
+        variables:
+        - value_selector:
+          - '1793979038323'
+          - order_id
+          value_type: string
+          variable: order_id
+      height: 52
+      id: '1793979352183'
+      position:
+        x: 1405
+        y: 541
+      positionAbsolute:
+        x: 1405
+        y: 541
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 9a4ffb0a-de59-4a75-bb6f-83bc7ed7e499
+            value: true
+            varType: boolean
+            variable_selector:
+            - '1793979352183'
+            - found
+          logical_operator: and
+        selected: false
+        title: 条件分支 2
+        type: if-else
+      height: 124
+      id: '1793979701701'
+      position:
+        x: 1746
+        y: 505
+      positionAbsolute:
+        x: 1746
+        y: 505
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: 没查到这笔订单，我帮你转人工核对一下，稍等。
+        selected: false
+        title: 未查到订单
+        type: answer
+        variables: []
+      height: 116
+      id: '1793980155026'
+      position:
+        x: 2107
+        y: 590.5
+      positionAbsolute:
+        x: 2107
+        y: 590.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        dataset_ids:
+        - FukulC47PhhyA8/syW4ftrN0EvgrjZZ7bAYG4dgnovBW/POy3BWPL7kLwTvylw3B
+        multiple_retrieval_config:
+          reranking_enable: false
+          reranking_mode: weighted_score
+          score_threshold: null
+          top_k: 5
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: text-embedding-v4
+              embedding_provider_name: langgenius/tongyi/tongyi
+              vector_weight: 0.7
+            weight_type: customized
+        query_attachment_selector: []
+        query_variable_selector:
+        - sys
+        - query
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 90
+      id: '1793981257778'
+      position:
+        x: 703
+        y: 91.5
+      positionAbsolute:
+        x: 703
+        y: 91.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: empty
+            id: bd1ebe52-bed6-445f-95f0-c0ecf6c412c4
+            value: ''
+            varType: array[object]
+            variable_selector:
+            - '1793981257778'
+            - result
+          logical_operator: and
+        selected: false
+        title: 条件分支 3
+        type: if-else
+      height: 124
+      id: '1793981321206'
+      position:
+        x: 1044
+        y: 74.5
+      positionAbsolute:
+        x: 1044
+        y: 74.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: 这条我需要帮你转人工确认，稍等。
+        selected: false
+        title: 直接回复 6
+        type: answer
+        variables: []
+      height: 100
+      id: '1793981338774'
+      position:
+        x: 1405
+        y: 0
+      positionAbsolute:
+        x: 1405
+        y: 0
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1793981257778'
+          - result
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: deepseek-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: b1cc6483-cc30-4d9e-a218-9d819d69946d
+          role: system
+          text: " # 角色\n  你是「小服」，云鲸数码的售后政策助手。\n\n  # 能做什么\n  只回答售后政策问题：退换货、保修、物流、发票、赔付标准。\n\
+            \n  # 回答规则\n  1. 只依据提供的知识库内容回答，不使用外部知识。\n  2. 先给结论，再给依据，正文不超过 200 字；内容多时优先保留结论和限定条件，宁少勿多。\n\
+            \  3. 每个结论后标注出处，格式 [文档标题]；只有检索内容中明确出现章节标题时才写\n  [文档标题#章节]；检索内容没有给出文档标题时，写\
+            \ [知识库检索片段]；禁止编造文档名或章节名。\n  4. 知识库内容里找不到依据时，回答「这条我需要帮你转人工确认」，不要编造。\n \
+            \ 5. 涉及具体订单状态、金额赔付、投诉，建议转人工。\n  6. 与售后无关的问题，礼貌说明只处理售后问题，并引导回退换货、保修、物流、发票。\n\
+            \  7. 语气简洁、共情，不使用「亲」「宝子」等称呼。\n  8. 覆盖检索内容里的关键限定条件（时限起算、商品完好、责任方、例外情形），不能只答一半。\n\
+            9. 订单信息中的「保修中/已过保」是权威判断，涉及保修的结论必须与之一致。\n\n\n\n  # 输出格式\n  结论：……\n  依据：……\n\
+            \  出处：[文档标题#章节]\n\n【政策资料】\n{{#context#}}"
+        - id: 3ac2df76-c548-46e4-8654-4508adfc5304
+          role: user
+          text: '{{#sys.query#}}'
+        selected: false
+        title: 政策回答
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1793981362486'
+      position:
+        x: 1405
+        y: 179
+      positionAbsolute:
+        x: 1405
+        y: 179
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: '{{#1793981362486.text#}}'
+        selected: false
+        title: 直接回复 7
+        type: answer
+        variables: []
+      height: 102
+      id: '1793981448574'
+      position:
+        x: 1746
+        y: 172
+      positionAbsolute:
+        x: 1746
+        y: 172
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        selected: false
+        template: '{{ category }} {{ query }}'
+        title: 模板转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1793979352183'
+          - category
+          value_type: string
+          variable: category
+        - value_selector:
+          - sys
+          - query
+          value_type: string
+          variable: query
+      height: 52
+      id: '1793983036146'
+      position:
+        x: 2107
+        y: 459.5
+      positionAbsolute:
+        x: 2107
+        y: 459.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        dataset_ids:
+        - FukulC47PhhyA8/syW4ftrN0EvgrjZZ7bAYG4dgnovBW/POy3BWPL7kLwTvylw3B
+        multiple_retrieval_config:
+          reranking_enable: false
+          reranking_mode: weighted_score
+          score_threshold: null
+          top_k: 5
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: text-embedding-v4
+              embedding_provider_name: langgenius/tongyi/tongyi
+              vector_weight: 0.7
+            weight_type: customized
+        query_attachment_selector: []
+        query_variable_selector:
+        - '1793983036146'
+        - output
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索 2
+        type: knowledge-retrieval
+      height: 90
+      id: '1793983132437'
+      position:
+        x: 2448
+        y: 440.5
+      positionAbsolute:
+        x: 2448
+        y: 440.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: empty
+            id: 87eaedbd-fcde-407a-8d76-45b53c51a3b3
+            value: ''
+            varType: array[object]
+            variable_selector:
+            - '1793983132437'
+            - result
+          logical_operator: and
+        selected: false
+        title: 条件分支 4
+        type: if-else
+      height: 124
+      id: '1793983212904'
+      position:
+        x: 2789
+        y: 423.5
+      positionAbsolute:
+        x: 2789
+        y: 423.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: 这条我需要帮你转人工确认，稍等。
+        selected: false
+        title: 未检索到政策
+        type: answer
+        variables: []
+      height: 100
+      id: '1793983298815'
+      position:
+        x: 3150
+        y: 349
+      positionAbsolute:
+        x: 3150
+        y: 349
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1793983132437'
+          - result
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: deepseek-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: a13d470a-8899-4854-83f6-fc2f85ef8efd
+          role: system
+          text: " # 角色\n  你是「小服」，云鲸数码的售后政策助手。\n\n  # 能做什么\n  只回答售后政策问题：退换货、保修、物流、发票、赔付标准。\n\
+            \n  # 回答规则\n  1. 只依据提供的知识库内容回答，不使用外部知识。\n  2. 先给结论，再给依据，正文不超过 200 字；内容多时优先保留结论和限定条件，宁少勿多。\n\
+            \  3.每个结论后标注出处，格式 [文档标题]；只有检索内容中明确出现章节标题时才写\n  [文档标题#章节]；检索内容没有给出文档标题时，写\
+            \ [知识库检索片段]；禁止编造文档名或章节名。\n  4. 知识库内容里找不到依据时，回答「这条我需要帮你转人工确认」，不要编造。\n \
+            \ 5. 涉及具体订单状态、金额赔付、投诉：有订单信息时正常回答订单状态；赔付金额与投诉处理建议转人工。\n  6. 与售后无关的问题，礼貌说明只处理售后问题，并引导回退换货、保修、物流、发票。\n\
+            \  7. 语气简洁、共情，不使用「亲」「宝子」等称呼。\n  8. 覆盖检索内容里的关键限定条件（时限起算、商品完好、责任方、例外情形），不能只答一半。\n\
+            9. 订单信息中的「保修中/已过保」是权威判断，涉及保修的结论必须与之一致。\n10. 订单信息中的「7日退货窗口」「发货时效」是系统计算结论，必须直接采用，不得自行按日期推算：\n\
+            \     - 说「可以无理由退货」前，必须确认 7日退货窗口为「是」；\n     - 显示「否（已超7日…）」时，明确告知已超期，不得说「7天内可以退」；\n\
+            \     - 显示「未签收，7日窗口未开始」时，说明签收后才起算；\n     - 显示「不适用（订单已取消）」时，不要引导用户申请退款。\n\
+            \  11. 状态为待发货且发货时效为「已超48小时」时，必须先指出已超过发货时效，并给出「取消订单、全额退款」选项；不得说「预计\n  48小时内发货」。\n\
+            \  12. 订单状态与用户描述矛盾时（例如待发货却说已经安装使用），先指出矛盾，再给处理建议。\n\n\n  # 输出格式\n  结论：……\n\
+            \  依据：……\n  出处：[文档标题#章节]\n\n【订单信息】\n{{#1793979352183.order_info#}}\n\n\
+            【政策资料】\n{{#context#}}"
+        - id: 96e77cda-d4a3-480a-8d29-af7f70b64979
+          role: user
+          text: '{{#sys.query#}}'
+        selected: false
+        title: 订单回答
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1793983323980'
+      position:
+        x: 3150
+        y: 528
+      positionAbsolute:
+        x: 3150
+        y: 528
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: '{{#1793983323980.text#}}'
+        selected: false
+        title: 订单回答输出
+        type: answer
+        variables: []
+      height: 102
+      id: '1793983518256'
+      position:
+        x: 3491
+        y: 521
+      positionAbsolute:
+        x: 3491
+        y: 521
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: deepseek-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: e7cdf67a-eb3e-4b97-9842-9d046c4c2c8e
+          role: system
+          text: "你是售后工单助手。把用户这次的售后诉求整理成工单摘要，供人工客服接手。\n\n  要求：\n  1. 纯文本，不超过 150 字。\n\
+            \  2. 包含四项：用户诉求（一句话）、已确认信息（订单号/商品/时间，未提供就写「未提供」）、已尝试的处理（没有就写「无」）\n  、建议转交原因。\n\
+            \  3. 只依据用户输入，不推测、不承诺赔付金额、不编造订单信息。\n  4. 不使用「亲」「宝子」。\n  5. 投诉分级：同一用户就同一问题第\
+            \ 3 次及以上反馈，标注「P2 重复投诉，4 小时内响应，升级专人跟进」；涉及人身安全、媒体曝光、向消协/12315/监管投诉或起诉，标注「P3\
+            \ 紧急投诉，30 分钟内响应并上报主管」；其余标注「P1 一般投诉」。\n  6. 摘要最后单独一行写：投诉等级：P1/P2/P3。"
+        - id: 2d5770ed-4aee-4dc4-9351-0b03f9c99b5b
+          role: user
+          text: '{{#sys.query#}}'
+        selected: false
+        title: 工单摘要
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1793984500853'
+      position:
+        x: 703
+        y: 665.5
+      positionAbsolute:
+        x: 703
+        y: 665.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: "非常抱歉给您带来不好的体验。这个问题我已经帮你转接人工客服，工单摘要如下：\n\n  {{#1793984500853.text#}}\n\
+          \n  人工客服会尽快跟进，赔付与处理方案以人工审核为准。"
+        selected: false
+        title: 安抚回复
+        type: answer
+        variables: []
+      height: 166
+      id: '1793984605443'
+      position:
+        x: 1044
+        y: 626.5
+      positionAbsolute:
+        x: 1044
+        y: 626.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    viewport:
+      x: 41.78996097515835
+      y: 301.00032217005634
+      zoom: 0.3298769776932242
+  rag_pipeline_variables: []

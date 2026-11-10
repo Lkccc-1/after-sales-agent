@@ -1,0 +1,12 @@
+﻿id,question,expected_tool,note
+E01,七天无理由退货有什么条件？,search_policy,政策类，只需检索
+E02,退款多久能到账？,search_policy,政策类，只需检索
+E04,退货时原包装坏了会扣多少钱？,search_policy,政策类，只需检索
+E06,换货有什么条件？运费谁出？,search_policy,政策类，换货运费
+E07,过保了还能免费维修吗？,search_policy,政策类，保修
+E09,订单 A20241105001 到哪了？,get_order+search_policy,订单事实+发货政策
+E10,订单 A20260918002 什么时候发货？,get_order+search_policy,订单事实+发货政策
+E11,订单 A20261012001 怎么还没发货？,get_order+search_policy,订单事实+发货政策
+E12,订单 A20260925001 我想申请退款,get_order,只要订单事实
+E15,订单 A20241105001 的耳机坏了能退吗？,get_order+search_policy,订单事实+保修政策
+E30,推荐一款便宜的手机,none,超范围，应直接拒答/不调工具

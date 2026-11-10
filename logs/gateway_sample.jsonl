@@ -1,0 +1,4 @@
+{"trace_id": "7d34d1937736", "status": "ok", "conversation_id": "df75f243-0a70-4bd3-bd2b-225d3fd6bfcf", "query_len": 13, "latency_ms": 9398, "tokens": 2915}
+{"trace_id": "4fcb769afe14", "status": "ok", "conversation_id": "e6159f79-ba0e-48c1-81b4-189de1ece2da", "query_len": 13, "latency_ms": 13845, "tokens": 3593}
+{"trace_id": "f61a758f78cd", "status": "ok", "conversation_id": "e6088986-87ca-43c5-88b4-82efc421e47e", "query_len": 13, "latency_ms": 7399, "tokens": 2526}
+{"trace_id": "bb092cce9d0e", "status": "error", "error": "retryable 502", "query_len": 13}

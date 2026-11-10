@@ -1,0 +1,15 @@
+Warning: Ignoring extra certs from `C:\path\to\corp-ca.pem`, load failed: error:80000003:system library::No such process
+Warning: Ignoring extra certs from `C:\path\to\corp-ca.pem`, load failed: error:80000003:system library::No such process
+Building prefix dict from the default dictionary ...
+Loading model from cache C:\Users\Owner\AppData\Local\Temp\jieba.cache
+Loading model cost 0.328 seconds.
+Prefix dict has been built successfully.
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"order_id\": \"A20241105001\",\n  \"product\": \"云鲸 Air 耳机\",\n  \"category\": \"耳机\",\n  \"order_date\": \"2024-11-05\",\n  \"days_since_order\": 735,\n  \"amount\": 399.0,\n  \"status\": \"已签收\",\n  \"warranty_end\": \"2025-11-05\",\n  \"warranty_active\": false,\n  \"within_7_days\": false\n}"
+    }
+  ],
+  "isError": false
+}

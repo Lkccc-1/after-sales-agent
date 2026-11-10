@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "aftersales-tools": {
+      "command": "D:\\claude-project\\产品经理内容\\作品集\\after-sales-agent\\.venv\\Scripts\\python.exe",
+      "args": [
+        "D:\\claude-project\\产品经理内容\\作品集\\after-sales-agent\\mcp_server\\server.py"
+      ],
+      "cwd": "D:\\claude-project\\产品经理内容\\作品集\\after-sales-agent"
+    }
+  }
+}
